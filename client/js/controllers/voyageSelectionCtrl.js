@@ -4,6 +4,9 @@ angular
       $state, Voyage) {
 
     $scope.voyages = [];
+    $scope.departurePort = "HKHKG";
+    $scope.arrivalPort = "SGSIN";
+
     function getVoyages() {
       Voyage
         .find()
@@ -14,13 +17,19 @@ angular
     }
     getVoyages();
 
-    $scope.addTodo = function() {
+    $scope.displayRoutes = function(departurePort, arrivalPort) {
+      var params = {
+        departurePort: departurePort,
+        arrivalPort: arrivalPort
+      };
+      console.log(params);
 
+      Voyage
+        .getRoutes(params)
+        .$promise
+        .then(function(results) {
+          $scope.routes = results;
+          alert($scope.routes);
+        });
     };
-
-    $scope.removeTodo = function(item) {
-
-    };
-
-    reloadData();
   }]);

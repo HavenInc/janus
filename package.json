@@ -7,7 +7,7 @@
     "reload": "lb-ng server/server.js client/js/services/lb-services.js",
     "pretest": "jshint .",
     "postinstall": "bower install",
-    "start": "node .",
+    "start": "npm run reload && node .",
     "test": "tape tests/**/*.js"
   },
   "dependencies": {

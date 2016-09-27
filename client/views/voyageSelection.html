@@ -1,14 +1,19 @@
 <h1>Voyages</h1>
 
+<!-- Display the list of Voyage data - this is just as an example of displaying the initial data -->
+<div ng-repeat="voyage in voyages">
+  <span>{{voyage.id}}</span>
+  <span>{{voyage.port}}<span>
+  <span>{{voyage.eta}}</span>
+  <span>{{voyage.etd}}</span>
+</div>
+
+<!-- Sample interface for querying data -->
 Departure Port
-<input></input>
+<input ng-model="departurePort">
 
 Arrival port
-<input></input>
+<input ng-model="arrivalPort">
 
 Find
-<button class="btn btn-default" ng-click="callRemoteMethod()">Find</button>
-
-<div ng-repeat="voyage in $scope.voyages">
-  {{voyage.id}}
-</div>
+<button class="btn btn-default" ng-click="displayRoutes(departurePort, arrivalPort)">Find</button>
