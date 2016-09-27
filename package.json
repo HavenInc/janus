@@ -1,9 +1,10 @@
 {
-  "name": "loopback-example-angular",
+  "name": "bacchus",
   "version": "1.0.0",
-  "description": "loopback-example-angular",
+  "description": "bacchus",
   "main": "server/server.js",
   "scripts": {
+    "reload": "lb-ng server/server.js client/js/services/lb-services.js",
     "pretest": "jshint .",
     "postinstall": "bower install",
     "start": "node .",

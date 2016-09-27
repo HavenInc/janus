@@ -26,7 +26,7 @@
     "dataSource": "db",
     "public": false
   },
-  "Todo": {
+  "Voyage": {
     "dataSource": "db",
     "public": true
   }

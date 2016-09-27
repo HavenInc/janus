@@ -1,0 +1,34 @@
+{
+  "name": "Voyage",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "vessel": {
+      "type": "string",
+      "required": true
+    },
+    "port": {
+      "type": "string",
+      "required": true
+    },
+    "eta": {
+      "type": "date",
+      "required": true
+    },
+    "etd": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

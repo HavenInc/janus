@@ -11,11 +11,11 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('todo', {
+      .state('voyageSelection', {
         url: '',
-        templateUrl: 'views/todo.html',
-        controller: 'TodoController'
+        templateUrl: 'views/voyageSelection.html',
+        controller: 'VoyageSelectionController'
       });
 
-    $urlRouterProvider.otherwise('todo');
+    $urlRouterProvider.otherwise('voyageSelection');
   }]);

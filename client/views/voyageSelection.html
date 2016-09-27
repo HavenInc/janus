@@ -1,0 +1,14 @@
+<h1>Voyages</h1>
+
+Departure Port
+<input></input>
+
+Arrival port
+<input></input>
+
+Find
+<button class="btn btn-default" ng-click="callRemoteMethod()">Find</button>
+
+<div ng-repeat="voyage in $scope.voyages">
+  {{voyage.id}}
+</div>

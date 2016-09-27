@@ -1,8 +1,8 @@
 {
-  "name": "loopback-example-angular",
+  "name": "bacchus",
   "license": "MIT",
   "version": "0.0.0",
-  "homepage": "https://github.com/strongloop/loopback-example-angular",
+  "homepage": "https://www.haveninc.com",
   "ignore": [
     "**/.*",
     "node_modules",
