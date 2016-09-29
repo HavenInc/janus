@@ -1,21 +1,22 @@
-# bacchus
 ## Haven Full-Stack Engineering Applicant Exercise
 
 ## The Mini Project
-Create a small application that can display voyages based on a list of provided port pairs. **You can use this skeleton project as a starting point, or use another framework of your choice. The only requirement is it must be Javascript based**
+**You can use this skeleton project as a starting point, or use another framework of your choice. The only requirement is it must be Javascript based**
 
-We have provided a list of vessel port calls (portCalls.json).  A port call contains the name of a vessel, a port and the dates the vessel arrives and departs from that port.  The port is defined by a UNLOCODE, a unique string assigned to each port worldwide.  Port calls are tied together by a voyageId which represents that several port calls are tied together as a single voyage.
+The goal of this exercise is to transform a set of vessel port calls into a sailing schedule and possible voyages for a user to select.
 
-While port calls are interesting what we really want to display is the list of voyages that are possible within a certain date range.  For example, in our data set the 'USS Harpoon' starts a voyage from Hong Kong (HKHKG) and will travel to Oakland (USOAK), visiting Singapore and Los Angeles along the way.  If we were to display the possible voyages it would be as follows:
+We have provided a json file which contains port calls (portCalls.json) for various vessels.  A port call contains the name of the vessel, a port and the dates the vessel arrives and departs from that port.  Port calls are tied together by a routeId which represents several port calls that are tied together in a route.
 
-HKHKG to SGSIN
-HKHKG to USLAX
-HKHKG to USOAK
-SGSIN to USLAX
-SGSIN to USOAK
-USLAX to USOAK
+While port calls are interesting what we really want is the ability to display the permutations of voyages that are possible within a date range.  For example, in our data set the 'USS Harpoon' starts a route from Hong Kong (HKHKG) and will travel to Oakland (USOAK), visiting Singapore and Los Angeles along the way.  If we were to display the possible voyages it would be as follows:
 
-Using either the provided skeleton app or writing your own create an interface that can transform the port calls into voyages.  The user should be able to enter a starting date and ending date and get back all of the possible voyages that are possible between those two dates.
+HKHKG to SGSIN  
+HKHKG to USLAX  
+HKHKG to USOAK  
+SGSIN to USLAX  
+SGSIN to USOAK  
+USLAX to USOAK  
+
+After completing this exercise a user should be able to enter a start and end date and get a list of voyages.  As mentioned you are free to use the provided skeleton app or write your own.
 
 > Do not hesitate to ask questions about how this could/should be set up! This is not a strict quiz, it is a starting point for collaboration.
 
