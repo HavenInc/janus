@@ -5,7 +5,7 @@
 
 The goal of this exercise is to transform a set of vessel port calls into a sailing schedule and possible voyages for a user to select.
 
-We have provided a json file which contains port calls (portCalls.json) for various vessels.  A port call contains the name of the vessel, a port and the dates the vessel arrives and departs from that port.  Port calls are tied together by a routeId which represents several port calls that are tied together in a route.
+We have provided a json file which contains port calls (portCalls.json) for various vessels.  A port call contains the name of the vessel, a port and the dates the vessel arrives and departs from that port.  The port calls are grouped by a routeId.
 
 While port calls are interesting what we really want is the ability to display the permutations of voyages that are possible within a date range.  For example, in our data set the 'USS Harpoon' starts a route from Hong Kong (HKHKG) and will travel to Oakland (USOAK), visiting Singapore and Los Angeles along the way.  If we were to display the possible voyages it would be as follows:
 
