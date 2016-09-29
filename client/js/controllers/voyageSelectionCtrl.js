@@ -1,35 +1,45 @@
 angular
   .module('app')
-  .controller('VoyageSelectionController', ['$scope', '$state', 'Voyage', function($scope,
-      $state, Voyage) {
+  .controller('VoyageSelectionController', ['$scope', '$state', 'PortCall', function($scope,
+      $state, PortCall) {
 
     $scope.voyages = [];
-    $scope.departurePort = "HKHKG";
-    $scope.arrivalPort = "SGSIN";
 
-    function getVoyages() {
-      Voyage
-        .find()
+    $scope.dateOptions = {
+      initDate: new Date(2016, 00, 01),
+      formatYear: 'yy',
+      startingDay: 1
+    };
+
+    $scope.displayRoutes = function(departureDate, arrivalDate) {
+      var params = {
+        departureDate: departureDate,
+        arrivalDate: arrivalDate
+      };
+
+      PortCall
+        .getRoutes(params)
         .$promise
         .then(function(results) {
           $scope.voyages = results;
         });
-    }
-    getVoyages();
-
-    $scope.displayRoutes = function(departurePort, arrivalPort) {
-      var params = {
-        departurePort: departurePort,
-        arrivalPort: arrivalPort
-      };
-      console.log(params);
-
-      Voyage
-        .getRoutes(params)
-        .$promise
-        .then(function(results) {
-          $scope.routes = results;
-          alert($scope.routes);
-        });
     };
+
+    $scope.departureDateCal = {
+      opened: false
+    };
+
+    $scope.arrivalDateCal = {
+      opened: false
+    };
+
+    $scope.openDepartureDate = function() {
+      $scope.departureDateCal.opened = true;
+    }
+
+    $scope.openArrivalDate = function() {
+      $scope.arrivalDateCal.opened = true;
+    }
+
+
   }]);

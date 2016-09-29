@@ -6,7 +6,8 @@
 angular
   .module('app', [
     'lbServices',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {

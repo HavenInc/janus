@@ -1351,13 +1351,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.Voyage
- * @header lbServices.Voyage
+ * @name lbServices.PortCall
+ * @header lbServices.PortCall
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Voyage` model.
+ * A $resource object for interacting with the `PortCall` model.
  *
  * ## Example
  *
@@ -1367,19 +1367,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "Voyage",
+    "PortCall",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector',
       function(Resource, LoopBackAuth, $injector) {
         var R = Resource(
-        urlBase + "/Voyages/:id",
+        urlBase + "/PortCalls/:id",
           { 'id': '@id' },
           {
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#create
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#create
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1406,18 +1406,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/Voyages",
+              url: urlBase + "/PortCalls",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#createMany
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#createMany
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1444,19 +1444,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/Voyages",
+              url: urlBase + "/PortCalls",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#upsert
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#upsert
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1483,18 +1483,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "upsert": {
-              url: urlBase + "/Voyages",
+              url: urlBase + "/PortCalls",
               method: "PUT",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#replaceOrCreate
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#replaceOrCreate
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1521,18 +1521,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "replaceOrCreate": {
-              url: urlBase + "/Voyages/replaceOrCreate",
+              url: urlBase + "/PortCalls/replaceOrCreate",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#upsertWithWhere
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#upsertWithWhere
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1558,18 +1558,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "upsertWithWhere": {
-              url: urlBase + "/Voyages/upsertWithWhere",
+              url: urlBase + "/PortCalls/upsertWithWhere",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#exists
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#exists
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1594,14 +1594,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/Voyages/:id/exists",
+              url: urlBase + "/PortCalls/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#findById
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#findById
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1625,18 +1625,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/Voyages/:id",
+              url: urlBase + "/PortCalls/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#replaceById
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#replaceById
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1662,18 +1662,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "replaceById": {
-              url: urlBase + "/Voyages/:id/replace",
+              url: urlBase + "/PortCalls/:id/replace",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#find
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#find
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1695,19 +1695,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/Voyages",
+              url: urlBase + "/PortCalls",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#findOne
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#findOne
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1729,18 +1729,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/Voyages/findOne",
+              url: urlBase + "/PortCalls/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#updateAll
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#updateAll
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1767,14 +1767,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * The number of instances updated
              */
             "updateAll": {
-              url: urlBase + "/Voyages/update",
+              url: urlBase + "/PortCalls/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#deleteById
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#deleteById
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1796,18 +1796,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/Voyages/:id",
+              url: urlBase + "/PortCalls/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#count
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#count
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1832,14 +1832,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/Voyages/count",
+              url: urlBase + "/PortCalls/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#prototype$updateAttributes
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#prototype$updateAttributes
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1865,18 +1865,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
             "prototype$updateAttributes": {
-              url: urlBase + "/Voyages/:id",
+              url: urlBase + "/PortCalls/:id",
               method: "PUT",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#createChangeStream
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#createChangeStream
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1906,14 +1906,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/Voyages/change-stream",
+              url: urlBase + "/PortCalls/change-stream",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#getRoutes
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#getRoutes
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1928,24 +1928,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object} postData Request data.
              *
-             *  - `arrivalPort` – `{string=}` -
+             *  - `departureDate` – `{date=}` -
              *
-             * @param {function(Object,Object)=} successCb
+             *  - `arrivalDate` – `{date=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
              *
              * @param {function(Object)=} errorCb Error callback with one argument:
              *   `httpResponse`.
              *
-             * @returns {Object} An empty reference that will be
+             * @returns {Array.<Object>} An empty reference that will be
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * Data properties:
-             *
-             *  - `result` – `{object=}` -
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PortCall` object.)
+             * </em>
              */
             "getRoutes": {
-              url: urlBase + "/Voyages/getRoutes",
+              isArray: true,
+              url: urlBase + "/PortCalls/getRoutes",
               method: "POST",
             },
           }
@@ -1955,8 +1959,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#patchOrCreate
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#patchOrCreate
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -1983,15 +1987,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#updateOrCreate
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#updateOrCreate
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2018,15 +2022,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#patchOrCreateWithWhere
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#patchOrCreateWithWhere
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2052,15 +2056,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#update
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#update
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2090,8 +2094,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#destroyById
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#destroyById
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2113,15 +2117,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#removeById
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#removeById
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2143,15 +2147,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Voyage#patchAttributes
-             * @methodOf lbServices.Voyage
+             * @name lbServices.PortCall#patchAttributes
+             * @methodOf lbServices.PortCall
              *
              * @description
              *
@@ -2177,7 +2181,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Voyage` object.)
+             * This usually means the response is a `PortCall` object.)
              * </em>
              */
         R["patchAttributes"] = R["prototype$updateAttributes"];
@@ -2185,13 +2189,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
         /**
         * @ngdoc property
-        * @name lbServices.Voyage#modelName
-        * @propertyOf lbServices.Voyage
+        * @name lbServices.PortCall#modelName
+        * @propertyOf lbServices.PortCall
         * @description
         * The name of the model represented by this $resource,
-        * i.e. `Voyage`.
+        * i.e. `PortCall`.
         */
-        R.modelName = "Voyage";
+        R.modelName = "PortCall";
 
 
 

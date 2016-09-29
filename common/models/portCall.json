@@ -1,5 +1,5 @@
 {
-  "name": "Voyage",
+  "name": "PortCall",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -14,15 +14,19 @@
       "type": "string",
       "required": true
     },
+    "routeId": {
+      "type": "string",
+      "required": true
+    },
     "port": {
       "type": "string",
       "required": true
     },
-    "eta": {
+    "etd": {
       "type": "date",
       "required": true
     },
-    "etd": {
+    "eta": {
       "type": "date",
       "required": true
     }

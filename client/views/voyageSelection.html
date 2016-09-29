@@ -1,19 +1,39 @@
 <h1>Voyages</h1>
 
+<!-- Sample interface -->
+<div>
+  Departure Port
+  <input
+    type="text"
+    class="form-control"
+    ng-click="openDepartureDate()"
+    uib-datepicker-popup="{{format}}"
+    ng-model="departureDate"
+    datepicker-options="dateOptions"
+    is-open="departureDateCal.opened"
+    ng-required="true"
+    close-text="Close" />
+
+  Arrival port
+  <input
+    type="text"
+    class="form-control"
+    ng-click="openArrivalDate()"
+    uib-datepicker-popup="{{format}}"
+    ng-model="arrivalDate"
+    datepicker-options="dateOptions"
+    is-open="arrivalDateCal.opened"
+    ng-required="true"
+    close-text="Close" />
+
+  <button class="btn btn-default" ng-click="displayRoutes(departureDate, arrivalDate)">Find</button>
+</div>
+
 <!-- Display the list of Voyage data - this is just as an example of displaying the initial data -->
+Results:
 <div ng-repeat="voyage in voyages">
   <span>{{voyage.id}}</span>
   <span>{{voyage.port}}<span>
-  <span>{{voyage.eta}}</span>
-  <span>{{voyage.etd}}</span>
+  <span>{{voyage.eta | date}}</span>
+  <span>{{voyage.etd | date}}</span>
 </div>
-
-<!-- Sample interface for querying data -->
-Departure Port
-<input ng-model="departurePort">
-
-Arrival port
-<input ng-model="arrivalPort">
-
-Find
-<button class="btn btn-default" ng-click="displayRoutes(departurePort, arrivalPort)">Find</button>

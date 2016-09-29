@@ -26,7 +26,7 @@
     "dataSource": "db",
     "public": false
   },
-  "Voyage": {
+  "PortCall": {
     "dataSource": "db",
     "public": true
   }
