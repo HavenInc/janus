@@ -24,11 +24,11 @@
     },
     "etd": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "eta": {
       "type": "date",
-      "required": true
+      "required": false
     }
   },
   "validations": [],

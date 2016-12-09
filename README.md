@@ -1,32 +1,48 @@
-## Haven Full-Stack Engineering Applicant Exercise
+## Haven Engineering Applicant Exercise
 
 ## The Mini Project
 **You can use this skeleton project as a starting point, or use another framework of your choice. The only requirement is it must be Javascript based**
 
-The goal of this exercise is to transform a set of vessel port calls into a sailing schedule and possible voyages for a user to select.
+Scenario:  We have several customers who are looking to book shipments with us.  They want to be able to enter a date range and find all of the voyages which are possible between those dates.  Unfortunately we only have a list of port calls - when vessels arrive and depart from each port.  Our goal is to take this list of port calls and generate all of the permutations so we can display voyages for our customers to select.
 
-We have provided a json file which contains port calls (portCalls.json) for various vessels.  A port call contains the name of the vessel, a port and the dates the vessel arrives and departs from that port.  The port calls are grouped by a routeId.
+Within this repository you can find a list of the port calls (portCalls.json) for the various vessels.  A port call contains the name of the vessel, a port and the dates the vessel arrives and departs from that port.  The port calls are grouped by a routeId.  
 
-While port calls are interesting what we really want is the ability to display the permutations of voyages that are possible within a date range.  For example, in our data set the 'USS Harpoon' starts a route from Hong Kong (HKHKG) and will travel to Oakland (USOAK), visiting Singapore and Los Angeles along the way.  If we were to display the possible voyages it would be as follows:
+From these port calls we can generate the list of voyages that are possible.  For example, in our data set the 'USS Harpoon' starts a route from Hong Kong (HKHKG), visit Singapore (SGSIN), Los Angeles (USLAX) and finishes in Oakland (USOAK).  The port calls would be listed as:
+
+HKHKG  
+SGSIN  
+USLAX  
+USOAK  
+
+If we were to display the possible voyages it would be as follows:
+
 
 HKHKG to SGSIN  
 HKHKG to USLAX  
 HKHKG to USOAK  
 SGSIN to USLAX  
 SGSIN to USOAK  
-USLAX to USOAK  
+USLAX to USOAK
 
-After completing this exercise a user should be able to enter a start and end date and get a list of voyages.  As mentioned you are free to use the provided skeleton app or write your own.
+As a visualization these are the port calls and all of the voyages that can be generated from them:
+
+![image](Permutations.png)
+
+#### Requirements
+
+- Convert the list of port calls into a list of possible voyages between ports
+- Provide an interface for listing all possible voyages between two dates, showing the port pairs and the vessel
+- You are free to use the provided skeleton app or write your own.
 
 > Do not hesitate to ask questions about how this could/should be set up! This is not a strict quiz, it is a starting point for collaboration.
 
 #### Skeleton Overview
-The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.strongloop.com/display/public/LB/Getting+started+with+LoopBack) application. The additions include
+The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.strongloop.com/display/public/LB/Getting+started+with+LoopBack) application. To help get you started we have provided boilerplate to:
 
-- A Port Call model which represents the port calls
-- Pre-populating the sample data within
-- An Angular client that includes two date pickers and a 'find' button.  The Angluar app can communicate with the loopback API / PortCall model to call the 'getRoutes' remote method / endpoint
-- The 'getRoutes' endpoint is stubbed to only return the list of Port Calls between the date range
+- Initialize / load the data from the portCall.js file
+- Provide a single stubbed API endpoint that can be modified to generate the list of voyages from the port calls
+- Scaffolding for the UI layer via Angular and the loopback Angular SDK
+- Date pickers for selecting the date range we want to display and a call to the API with those dates
 
 ## Getting Started
 - The [Create a Simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) tutorial for Strongloop is a great starting point, along with [Installing Strongloop](https://docs.strongloop.com/display/public/LB/Installing+StrongLoop) and [Loopback Core Concepts](https://docs.strongloop.com/display/public/LB/LoopBack+core+concepts).
