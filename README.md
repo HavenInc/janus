@@ -51,7 +51,6 @@ The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.str
 - Once cloned, install the application dependencies using `npm install` in the root of the project.
 - Once installed, start the application with `npm start` - this will regenerate the loopback Angular SDK and start the server.
 - Extend the stubbed remote methods inside [common/models/portCalls.js](https://github.com/HavenInc/bacchus/blob/master/common/models/portCall.js) to return the expected voyages.
-- Update and refactor the UI to match the provided mockup as closely as possible
 - You can use the [API Explorer http://0.0.0.0:3000/explorer](http://0.0.0.0:3000/explorer) to test your new methods while in development.
 - Document tradeoffs/shortcuts in the interest of time; this exercise should not take more than 2-3 hours for basic functionality.
 
