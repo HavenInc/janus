@@ -41,9 +41,4 @@ module.exports = function(PortCall) {
     ]
   });
 
-  // For sample testing (see tests in /test directory)
-  PortCall.test = function() {
-    return true;
-  };
-
 };
