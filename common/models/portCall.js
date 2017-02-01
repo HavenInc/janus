@@ -20,6 +20,7 @@ module.exports = function(PortCall) {
 
     PortCall.find(query)
       .then(calls => {
+        // TODO: convert port calls to voyages/routes
         console.log(calls);
 
         return cb(null, calls);
