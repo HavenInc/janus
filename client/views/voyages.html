@@ -1,0 +1,62 @@
+<div class="container">
+
+  <h1>Voyages</h1>
+
+  <!-- Sample interface -->
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label>Departure Port</label>
+      <input
+        type="text"
+        class="form-control"
+        ng-click="ctrl.isEtdOpen = !ctrl.isEtdOpen"
+        uib-datepicker-popup="{{format}}"
+        ng-model="ctrl.etd"
+        datepicker-options="ctrl.dateOptions"
+        is-open="ctrl.isEtdOpen" />
+    </div>
+
+    <div class="form-group">
+      <label>Arrival port</label>
+      <input
+        type="text"
+        class="form-control"
+        ng-click="ctrl.isEtaOpen = !ctrl.isEtaOpen"
+        uib-datepicker-popup="{{format}}"
+        ng-model="ctrl.eta"
+        datepicker-options="ctrl.dateOptions"
+        is-open="ctrl.isEtaOpen" />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      ng-click="ctrl.getRoutes(ctrl.etd, ctrl.eta)">
+      Find
+    </button>
+
+  </form>
+
+  <!-- Display the list of Voyage data - this is just as an example of displaying the initial data -->
+  <table class="table table-striped"
+         ng-show="ctrl.voyages.length">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Port</th>
+        <th>ETA</th>
+        <th>ETD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="voyage in ctrl.voyages">
+        <th>{{ voyage.id }}</th>
+        <td>{{ voyage.port }}</td>
+        <td>{{ (voyage.eta | date) || 'N/A' }}</td>
+        <td>{{ (voyage.etd | date) || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
