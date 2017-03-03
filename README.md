@@ -28,10 +28,21 @@ As a visualization these are the port calls and all of the voyages that can be g
 
 ![image](Permutations.png)
 
+Now, taking this problem one step further, let's consider a use case that is seen currently in the industry. 
+Say you have two vessels that both pass through the port of Hong Kong. You could technically jump from one ship to the other and continue on the next ship's voyage. This is called a transshipment. For example:
+
+Route 1: SGSIN -> HKHKG -> USLAX
+Route 2: HKHKG -> USOAK -> COBOG
+
+Now your cargo is in SGSIN, and you want it delivered to COBOG. You could technically start on Route 1 in SGSIN, and when you get to HGHKG, you reload your cargo onto Route 2 and continue on your way to COBOG. There are probably some factors you would want to consider to make sure that this jump is actually possible. 
+
+As a final part of this problem, please include a checkbox that allows you to select whether or not to display these transshipments in the results of your possible voyages. 
+
 #### Requirements
 
 - Convert the list of port calls into a list of possible voyages between ports
-- Provide an interface for listing all possible voyages between two dates, showing the port pairs and the vessel
+- Include a toggle to add transhipments to your result set
+- Provide an interface for listing all possible voyages between two dates, showing the port pairs and vessels involved
 - You are free to use the provided skeleton app or write your own.
 
 > Do not hesitate to ask questions about how this could/should be set up! This is not a strict quiz, it is a starting point for collaboration.
