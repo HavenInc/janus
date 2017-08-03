@@ -14,8 +14,8 @@ function VoyagesCtrl($log, PortCall) {
     startingDay: 1
   };
 
-  ctrl.getRoutes = (etd, eta) => {
-    const params = { etd, eta };
+  ctrl.getRoutes = (etd, eta, incTrans) => {
+    const params = { etd, eta, incTrans };
 
     PortCall.getRoutes(params).$promise
       .then(voyages => {
