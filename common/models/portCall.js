@@ -20,41 +20,16 @@ module.exports = function(PortCall) {
 
     PortCall.find(query)
       .then(calls => {
-      var routeIdPortCallsMap = [];
-      /*
-        Group by RouteID
-      */
-      for (var i = 0; i < calls.length; i++) {
-          if (routeIdPortCallsMap[calls[i].routeId] == null) {
-              routeIdPortCallsMap[calls[i].routeId] = [];
-          }
-          routeIdPortCallsMap[calls[i].routeId].push(calls[i]);
-      }
+
+        /*
+          All port calls are grouped by RouteID
+        */
+        var routeIdPortCallsMap = getRouteIdPortCallsMap(calls);
 
       /*
        All direct routes based on port calls.
       */
-      var allRoutes = [];
-      for (var routeId in routeIdPortCallsMap) {
-          for (i = 0; i < routeIdPortCallsMap[routeId].length; i++) {
-              for (var j = i + 1;
-                   j < routeIdPortCallsMap[routeId].length;
-                   j++) {
-                  if (routeIdPortCallsMap[routeId][i].port !==
-                      routeIdPortCallsMap[routeId][j].port) {
-                      var route = {};
-                      route.vessel = routeIdPortCallsMap[routeId][i].vessel;
-                      route.from = routeIdPortCallsMap[routeId][i].port;
-                      route.to = routeIdPortCallsMap[routeId][j].port;
-                      route.type = 'direct';
-                      route.etd = routeIdPortCallsMap[routeId][i].etd;
-                      route.eta = routeIdPortCallsMap[routeId][j].eta;
-                      route.routeId = routeId;
-                      allRoutes.push(route);
-                  }
-              }
-          }
-      }
+      var allVoyages = getAllDirectVoyages(routeIdPortCallsMap);
 
       /*
       If transit shipments are requested, do the below.
@@ -63,30 +38,24 @@ module.exports = function(PortCall) {
           /*
           Group all the routes from each port.
           */
-          var portRouteMap = [];
-          for (i = 0; i < allRoutes.length; i++) {
-              if (portRouteMap[allRoutes[i].from] == null) {
-                  portRouteMap[allRoutes[i].from] = [];
-              }
-              portRouteMap[allRoutes[i].from].push(allRoutes[i]);
-          }
+          let portVoyageMap = getPortVoyageMap(allVoyages);
 
           /*
             Find out all transit shipments starting from each port.
           */
-          for (var port in portRouteMap) {
+          for (let port in portVoyageMap) {
               var curRoutes = getTransitRoutes(null,
                                                port,
-                                               portRouteMap,
+                                               portVoyageMap,
                                                etd,
                                                eta);
-              for (i = 0; i < curRoutes.length; i++) {
-                  allRoutes.push(curRoutes[i]);
+              for (let i = 0; i < curRoutes.length; i++) {
+                  allVoyages.push(curRoutes[i]);
               }
           }
       }
 
-      return cb(null, allRoutes);
+      return cb(null, allVoyages);
       })
       .catch(err => {
         console.log(err);
@@ -108,48 +77,124 @@ module.exports = function(PortCall) {
 
 };
 
-function getTransitRoutes(prevRoute, curPort, portRouteMap, etd, eta) {
-   var curRoutes = [];
-   var transRoutes = [];
-   var routes = portRouteMap[curPort];
+/**
+ * [get map of routeId to port calls for that routeId]
+ * @param  {[type]} calls [port calls withing the given window]
+ * @return {[type]}       [map of routeId to port calls for that routeId]
+ */
+function getRouteIdPortCallsMap(calls){
+  var routeIdPortCallsMap = [];
+  calls.forEach((call) => {
+      if (routeIdPortCallsMap[call.routeId] == null) {
+          routeIdPortCallsMap[call.routeId] = [];
+        }
+        routeIdPortCallsMap[call.routeId].push(call);
+  });
+  return routeIdPortCallsMap;
+
+}
+
+/**
+ * [get All Direct Voyages from routeId to poet calls map]
+ * @param  {[type]} routeIdPortCallsMap [routeId to port calls map]
+ * @return {[type]}                     [list of direct voyages]
+ */
+function getAllDirectVoyages(routeIdPortCallsMap){
+  let allVoyages = [];
+  for (let routeId in routeIdPortCallsMap) {
+      for (let i = 0; i < routeIdPortCallsMap[routeId].length; i++) {
+          for (let j = i + 1;
+               j < routeIdPortCallsMap[routeId].length;
+               j++) {
+              if (routeIdPortCallsMap[routeId][i].port !==
+                  routeIdPortCallsMap[routeId][j].port) {
+                  var route = {};
+                  route.vessel = routeIdPortCallsMap[routeId][i].vessel;
+                  route.from = routeIdPortCallsMap[routeId][i].port;
+                  route.to = routeIdPortCallsMap[routeId][j].port;
+                  route.type = 'direct';
+                  route.etd = routeIdPortCallsMap[routeId][i].etd;
+                  route.eta = routeIdPortCallsMap[routeId][j].eta;
+                  route.routeId = routeId;
+                  allVoyages.push(route);
+              }
+          }
+      }
+  }
+  return allVoyages;
+}
+
+/**
+ * [get map of port to list of direct voyages from that port]
+ * @param  {[type]} allVoyages [list of direct voyages]
+ * @return {[type]}            [port to list of direct voyages map]
+ */
+function getPortVoyageMap(allVoyages){
+  let portVoyageMap = [];
+  allVoyages.forEach((route) => {
+      if (portVoyageMap[route.from] == null) {
+          portVoyageMap[route.from] = [];
+      }
+      portVoyageMap[route.from].push(route);
+  });
+  return portVoyageMap;
+}
+
+
+
+/**
+ * [get all transit voyages from each port]
+ * @param  {[type]} prevRoute     [previous port]
+ * @param  {[type]} curPort       [current port]
+ * @param  {[type]} portVoyageMap [all port and direct voyage map]
+ * @param  {[type]} etd           [etd]
+ * @param  {[type]} eta           [eta]
+ * @return {[type]}               [all trasite yoyages fromt that port]
+ */
+function getTransitRoutes(prevRoute, curPort, portVoyageMap, etd, eta) {
+   let curRoutes = [];
+   let transRoutes = [];
+   let routes = portVoyageMap[curPort];
    /*
      If current port have no routes starting from it, return empty array
    */
    if (routes == null) {
        return [];
    }
-   for (var i = 0; i < routes.length; i++) {
-       /*
-         if eta and etd is in required window
-         , vessels are same,
-         routes are diff then attach to prevRoute
-       */
-       if (routes[i].etd != null &&
-           routes[i].etd >= etd &&
-           routes[i].eta != null &&
-           routes[i].eta <= eta &&
-           (prevRoute === null || prevRoute.vessel === routes[i].vessel) &&
-           (prevRoute === null || prevRoute.routeId !== routes[i].routeId)) {
-           curRoutes.push(routes[i]);
-           if (prevRoute !== null && prevRoute.from !== routes[i].to) {
-               var route = {};
-               route.from = prevRoute.from;
-               route.to = routes[i].to;
-               route.etd = prevRoute.etd;
-               route.eta = routes[i].eta;
-               route.type = 'transit';
-               route.vessel = routes[i].vessel;
-               if (routes[i].from === route.from) {
-                   route.routeId = routes[i].routeId;
-               } else {
-                   route.routeId = prevRoute.routeId +
-                       '--(' + routes[i].from + ')->' +
-                       routes[i].routeId;
-               }
-               transRoutes.push(route);
-           }
-       }
-   }
+
+   routes.forEach((route) => {
+     /*
+       if eta and etd is in required window
+       , vessels are same,
+       routes are diff then attach to prevRoute
+     */
+     if (route.etd != null &&
+         route.etd >= etd &&
+         route.eta != null &&
+         route.eta <= eta &&
+         (prevRoute === null || prevRoute.vessel === route.vessel) &&
+         (prevRoute === null || prevRoute.routeId !== route.routeId)) {
+         curRoutes.push(route);
+         if (prevRoute !== null && prevRoute.from !== route.to) {
+             let transRoute = {};
+             transRoute.from = prevRoute.from;
+             transRoute.to = route.to;
+             transRoute.etd = prevRoute.etd;
+             transRoute.eta = route.eta;
+             transRoute.type = 'transit';
+             transRoute.vessel = route.vessel;
+             if (route.from === transRoute.from) {
+                 transRoute.routeId = route.routeId;
+             } else {
+                 transRoute.routeId = prevRoute.routeId +
+                     '--(' + route.from + ')->' +
+                     route.routeId;
+             }
+             transRoutes.push(transRoute);
+         }
+     }
+
+   });
 
    /*
      For each matching routes from curPort,
@@ -157,15 +202,15 @@ function getTransitRoutes(prevRoute, curPort, portRouteMap, etd, eta) {
      by making curRoute as prevRoute.
    */
 
-   for (i = 0; i < curRoutes.length; i++) {
-       var nextLevelRoutes = getTransitRoutes(curRoutes[i],
+   for (let i = 0; i < curRoutes.length; i++) {
+       let nextLevelRoutes = getTransitRoutes(curRoutes[i],
            curRoutes[i].to,
-           portRouteMap,
+           portVoyageMap,
            curRoutes[i].eta,
            eta);
-       for (var j = 0; j < nextLevelRoutes.length; j++) {
+       for (let j = 0; j < nextLevelRoutes.length; j++) {
            if (curPort !== nextLevelRoutes[j].to) {
-               var transRoute = {};
+               let transRoute = {};
                transRoute.from = curPort;
                transRoute.to = nextLevelRoutes[j].to;
                transRoute.etd = curRoutes[i].etd;
