@@ -26,6 +26,8 @@
   "devDependencies": {
     "bower": "^1.5.2",
     "chai": "^3.5.0",
+    "chai-fs": "1.0.0",
+    "fs": "0.0.1-security",
     "loopback-api-testing": "0.3.2",
     "jshint": "^2.5.6",
     "mocha": "^3.2.0",
