@@ -58,6 +58,7 @@ The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.str
 Running the skeleton app:
 
     git clone https://github.com/HavenInc/janus.git
+    cd janus
     npm install
     npm start
 
