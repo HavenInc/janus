@@ -55,6 +55,10 @@ The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.str
 - Scaffolding for the UI layer via Angular and the loopback Angular SDK
 - Date pickers for selecting the date range we want to display and a call to the API with those dates
 
+    git clone https://github.com/HavenInc/janus.git
+    npm install
+    npm start
+
 ## Getting Started
 - The [Create a Simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) tutorial for Strongloop is a great starting point, along with [Installing Strongloop](https://docs.strongloop.com/display/public/LB/Installing+StrongLoop) and [Loopback Core Concepts](https://docs.strongloop.com/display/public/LB/LoopBack+core+concepts).
 - Install [NodeJS](https://nodejs.org) on your dev machine, and make sure [npm](https://www.npmjs.com/) is also installed (it should come with most distributions of node).
