@@ -55,6 +55,8 @@ The skeleton provided here is a barebones [Strongloop/Loopback](https://docs.str
 - Scaffolding for the UI layer via Angular and the loopback Angular SDK
 - Date pickers for selecting the date range we want to display and a call to the API with those dates
 
+Running the skeleton app:
+
     git clone https://github.com/HavenInc/janus.git
     npm install
     npm start
