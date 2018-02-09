@@ -61,6 +61,8 @@ Running the skeleton app:
     cd janus
     npm install
     npm start
+    
+The web UI should then be available at http://0.0.0.0:3000 and the API Explorer will be at http://0.0.0.0:3000/explorer/
 
 ## Getting Started
 - The [Create a Simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) tutorial for Strongloop is a great starting point, along with [Installing Strongloop](https://docs.strongloop.com/display/public/LB/Installing+StrongLoop) and [Loopback Core Concepts](https://docs.strongloop.com/display/public/LB/LoopBack+core+concepts).
