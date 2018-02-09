@@ -75,6 +75,6 @@ The web UI should then be available at http://0.0.0.0:3000 and the API Explorer 
 
 
 ## Bonus Options
-- Add appropriate unit tests
+- Add a unit test or two
 - Create an npm run script inside package.json that uses supervisor to reload/rerun the code as you edit it.
 - What would be an interesting way to present the app to the engineering team?
