@@ -67,9 +67,6 @@ The web UI should then be available at http://0.0.0.0:3000 and the API Explorer 
 ## Getting Started
 - The [Create a Simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) tutorial for Strongloop is a great starting point, along with [Installing Strongloop](https://docs.strongloop.com/display/public/LB/Installing+StrongLoop) and [Loopback Core Concepts](https://docs.strongloop.com/display/public/LB/LoopBack+core+concepts).
 - Install [NodeJS](https://nodejs.org) on your dev machine, and make sure [npm](https://www.npmjs.com/) is also installed (it should come with most distributions of node).
-- Clone this repository.
-- Once cloned, install the application dependencies using `npm install` in the root of the project.
-- Once installed, start the application with `npm start` - this will regenerate the loopback Angular SDK and start the server.
 - Extend the stubbed remote methods inside [common/models/portCalls.js](https://github.com/HavenInc/bacchus/blob/master/common/models/portCall.js) to return the expected voyages.
 - You can use the [API Explorer http://0.0.0.0:3000/explorer](http://0.0.0.0:3000/explorer) to test your new methods while in development.
 - Document tradeoffs/shortcuts in the interest of time; this exercise should not take more than 2-3 hours for basic functionality.
